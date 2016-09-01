@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function show($id) {
 		$post = \App\Post::find($id);
 		return View('show')
-			->with('title', 'My Blog - '. $post->title)
+			->with('title', 'My Blog')
 			->with('post', $post);
 	}
 	
@@ -42,13 +42,13 @@ class HomeController extends Controller
 
 	public function create(){
 		return View('create')
-			->with('title', '新增文章');
+			->with('title', 'My Blog');
 	}
 
 	public function edit($id){
 		$post = \App\Post::find($id);
 		return View('edit')
-			->with('title', '編輯文章')
+			->with('title', 'My Blog')
 			->with('post', $post);
 	}
 
