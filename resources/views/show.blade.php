@@ -22,7 +22,7 @@
     @if (isset($post))
         <h1>{{ $post->title }}</h1>
         <hr>
-        <p><blockquote>{{ $post->content }}</blockquote></p>
+        {!! $post->content !!}        
         <hr>
     @endif
     <a href="{{ URL::previous() }}" class = "btn btn-default">回上一頁</a>

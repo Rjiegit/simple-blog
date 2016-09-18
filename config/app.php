@@ -161,6 +161,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         //Illuminate\Html\HtmlServiceProvider::class,
 
+        Unisharp\Ckeditor\ServiceProvider::class,
+
 
     ],
 

@@ -43,5 +43,9 @@
     <!-- 最新編譯和最佳化的 JavaScript -->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>-->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'content' );
+    </script>
 </body>
 </html>
