@@ -27,9 +27,12 @@ class HomeController extends Controller
 			->with('post', $post);
 	}
 	
-	public function store(){
-    	//$input = Input::all();    	
-    	//return  $input['title'];
+	public function store(Request $request){
+
+		$this->validate($request, [
+        	'title' => 'required|unique:posts|max:255|min:3',
+        	'content' => 'required|min:3',
+    	]);
 
 		$input = Input::all();
 		$post = new \App\Post;
