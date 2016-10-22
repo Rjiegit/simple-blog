@@ -8,20 +8,21 @@ use App\Http\Requests;
 
 //important! 有他input才能動
 use Illuminate\Support\Facades\Input;
+use App\Post;
 
 
 class HomeController extends Controller
 {
     public function index() {
 		
-		$post = \App\Post::all();
+		$post = Post::paginate(10);
 		return View('home')
 		->with('title', 'My Blog')
 		->with('posts', $post);
     }
 
     public function show($id) {
-		$post = \App\Post::find($id);
+		$post = Post::find($id);
 		return View('show')
 			->with('title', 'My Blog')
 			->with('post', $post);
@@ -35,7 +36,7 @@ class HomeController extends Controller
     	]);
 
 		$input = Input::all();
-		$post = new \App\Post;
+		$post = new Post;
 		$post->title = $input['title'];
 		$post->content = $input['content'];
 		$post->save();
@@ -49,7 +50,7 @@ class HomeController extends Controller
 	}
 
 	public function edit($id){
-		$post = \App\Post::find($id);
+		$post = Post::find($id);
 		return View('edit')
 			->with('title', 'My Blog')
 			->with('post', $post);
@@ -57,7 +58,7 @@ class HomeController extends Controller
 
 	public function update($id){
 		$input = Input::all();
-		$post = \App\Post::find($id);
+		$post = Post::find($id);
 		$post->title = $input['title'];
 		$post->content = $input['content'];
 		$post->save();
